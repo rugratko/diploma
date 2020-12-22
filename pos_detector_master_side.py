@@ -1,4 +1,4 @@
-import json, rpc, serial, serial.tools.list_ports, struct, sys, time
+import rpc, serial, serial.tools.list_ports, struct, sys, time
 from datetime import datetime
 
 print("\nAvailable Ports:\n")
@@ -18,7 +18,7 @@ def exe_find_rectangle():
     if result is None:
         print('None')
     if result is not None:
-        print("Info: [s1 = %d, s2 = %d]:[dx = %d, dy = %d][PxSm = %d, Rg = %d]:" % struct.unpack("<HHHHHH", result))
+        print("Info: [s1 = %d, s2 = %d]:[dx = %d, dy = %d][PxCm = %d, Rg = %d]:" % struct.unpack("<HHHHHH", result))
 
 def exe_snap_rectangle():
     result = interface.call("snap_rectangle")
