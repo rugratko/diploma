@@ -43,7 +43,7 @@ def simulate(xg_test, yg_test, tol):
     pos_err_x = np.random.normal(loc=0.0, scale=tol/2.5, 
                                  size=(xg_test.shape[0], xg_test.shape[1]))
     pos_err_y = np.random.normal(loc=0.0, scale=tol/2.5, 
-                                 size=(xg_test.shape[0], xg_test.shape[1]))
+                                 size=(yg_test.shape[0], yg_test.shape[1]))
     # задание положения с погрешностью по x и y
     x_from_mv = xg_test + pos_err_x
     y_from_mv = yg_test + pos_err_y   
