@@ -27,7 +27,8 @@ def interpolate_from_calibration(x_mv, y_mv):
     
     
 def simulate(xg_test, yg_test, tol):    
-    """Симуляция установки груза на платформу с погрешностью распознавания
+    """Симуляция установки груза на платформу 
+    с погрешностью распознавания
 
     Args:
         xg_test (float): положение груза по x
@@ -35,11 +36,14 @@ def simulate(xg_test, yg_test, tol):
         tol (float): погрешность распознавания положения
 
     Returns:
-        float: процент ???
+        float: массив погрешности измерения после 
+        корректировки для одного набора тестовых точек
     """    
     # генерация погрешности положения по x и y
-    pos_err_x = np.random.normal(loc=0.0, scale=tol/2.5, size=(xg_test.shape[0], xg_test.shape[1]))
-    pos_err_y = np.random.normal(loc=0.0, scale=tol/2.5, size=(xg_test.shape[0], xg_test.shape[1]))
+    pos_err_x = np.random.normal(loc=0.0, scale=tol/2.5, 
+                                 size=(xg_test.shape[0], xg_test.shape[1]))
+    pos_err_y = np.random.normal(loc=0.0, scale=tol/2.5, 
+                                 size=(xg_test.shape[0], xg_test.shape[1]))
     # задание положения с погрешностью по x и y
     x_from_mv = xg_test + pos_err_x
     y_from_mv = yg_test + pos_err_y   
@@ -48,7 +52,8 @@ def simulate(xg_test, yg_test, tol):
     # получение корректировки к весу согласно результату с камеры
     correction_from_mv = interpolate_from_calibration(x_from_mv, y_from_mv)
     # применение корректировки к весу
-    weight_after_correction = np.divide(weight_from_sensor.reshape(-1, 1), correction_from_mv.reshape(-1, 1))
+    weight_after_correction = np.divide(weight_from_sensor.reshape(-1, 1), 
+                                        correction_from_mv.reshape(-1, 1))
     # перевод в проценты
     errors = (weight_after_correction - 100.0)/100.0*100.0
     return errors
@@ -87,10 +92,13 @@ def get_number_of_bins(sample, d_err):
     return int((np.max(sample)-np.min(sample))/d_err)
 
 
-cal_mesh_size = 20 #густота сетки калибровки
+cal_mesh_size = 50 #густота сетки калибровки
 test_mesh_size = 50 #густота сетки испытаний
-xg_cal, yg_cal = np.meshgrid(np.linspace(-8.5, 8.5, cal_mesh_size), np.linspace(-8.5, 8.5, cal_mesh_size)) #задание сетки для калибровки
-xg_test, yg_test = np.meshgrid(np.linspace(-3.0, 3.0, test_mesh_size), np.linspace(-3.0, 3.0, test_mesh_size)) #задание сетки для испытаний
+xg_cal, yg_cal = np.meshgrid(np.linspace(-8.5, 8.5, cal_mesh_size), 
+                             np.linspace(-8.5, 8.5, cal_mesh_size)) #задание сетки для калибровки
+xg_test, yg_test = np.meshgrid(np.linspace(-5.0, 5.0, test_mesh_size), 
+                               np.linspace(-5.0, 5.0, test_mesh_size)) #задание сетки для испытаний
+
 correction = weight_function(xg_cal, yg_cal)/100.0 #функция искривления веса (ось Z)
 
 fig = plt.figure() #создание бланка графика
@@ -112,10 +120,10 @@ errors_2 = simulate_several_runs(xg_test, yg_test, 0.5) #прогон эмуля
 band_1 = np.percentile(errors_1, 99.5) - np.percentile(errors_1, 0.5) 
 band_2 = np.percentile(errors_2, 99.5) - np.percentile(errors_2, 0.5)
 
-# вывод результатов
-print(band_1, band_2)
-print(np.std(errors_1), np.std(errors_2))
-print(np.mean(errors_1), np.mean(errors_2))
+# вывод результатов 
+print(band_1, band_2) #доверительный интервал 
+print(np.std(errors_1), np.std(errors_2)) #среднеквадратичное отклонение
+print(np.mean(errors_1), np.mean(errors_2)) #среднее арифметическое
 
 d_err = 0.005 #коэффициент количества столбцов
 
@@ -125,7 +133,7 @@ plt.hist(errors_1, bins = get_number_of_bins(errors_1, d_err),
 plt.hist(errors_2, bins = get_number_of_bins(errors_2, d_err), 
           alpha = 0.5, label = 'Допуск = 0.25 см', density = True)
 plt.xlabel('Погрешность после корректировки, %')
-plt.ylabel('???')
+plt.ylabel('Плотность вероятности rho(x)')
 plt.legend()
 plt.show()
     
