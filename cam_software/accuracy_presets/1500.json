@@ -1,0 +1,557 @@
+{
+    "Stage 0": {
+        "Shot 1": {
+            "timestamp": 174811,
+            "rect_pos": [
+                80,
+                60
+            ],
+            "circle1_pos": [
+                38,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                15
+            ],
+            "circle4_pos": [
+                126,
+                103
+            ],
+            "pixel_per_mm_ratio": 0.7229166666666667,
+            "platform_center": [
+                81.5,
+                59.25
+            ],
+            "relative_rect_pos": [
+                -2.07492795389049,
+                1.037463976945245
+            ]
+        },
+        "Shot 2": {
+            "timestamp": 174816,
+            "rect_pos": [
+                80,
+                60
+            ],
+            "circle1_pos": [
+                38,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                15
+            ],
+            "circle4_pos": [
+                126,
+                103
+            ],
+            "pixel_per_mm_ratio": 0.7229166666666667,
+            "platform_center": [
+                81.5,
+                59.25
+            ],
+            "relative_rect_pos": [
+                -2.07492795389049,
+                1.037463976945245
+            ]
+        },
+        "Shot 3": {
+            "timestamp": 174817,
+            "rect_pos": [
+                80,
+                60
+            ],
+            "circle1_pos": [
+                38,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                15
+            ],
+            "circle4_pos": [
+                126,
+                103
+            ],
+            "pixel_per_mm_ratio": 0.7229166666666667,
+            "platform_center": [
+                81.5,
+                59.25
+            ],
+            "relative_rect_pos": [
+                -2.07492795389049,
+                1.037463976945245
+            ]
+        },
+        "relative_rect_pos_mean": [
+            -2.075,
+            1.037
+        ],
+        "scaled_value": 1.1762208252224464,
+        "scaled_delta": 0.00046719874361874595,
+        "weight": 1500,
+        "coeffs": [
+            0.079933457371556,
+            0,
+            0
+        ]
+    },
+    "Stage 1": {
+        "Shot 1": {
+            "timestamp": 174833,
+            "rect_pos": [
+                120,
+                60
+            ],
+            "circle1_pos": [
+                40,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.0,
+                59.25
+            ],
+            "relative_rect_pos": [
+                53.177842565597665,
+                1.0495626822157433
+            ]
+        },
+        "Shot 2": {
+            "timestamp": 174836,
+            "rect_pos": [
+                120,
+                60
+            ],
+            "circle1_pos": [
+                40,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.0,
+                59.25
+            ],
+            "relative_rect_pos": [
+                53.177842565597665,
+                1.0495626822157433
+            ]
+        },
+        "Shot 3": {
+            "timestamp": 174837,
+            "rect_pos": [
+                120,
+                60
+            ],
+            "circle1_pos": [
+                40,
+                17
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                124,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.0,
+                59.25
+            ],
+            "relative_rect_pos": [
+                53.177842565597665,
+                1.0495626822157433
+            ]
+        },
+        "relative_rect_pos_mean": [
+            53.178,
+            1.05
+        ],
+        "scaled_value": 1.1931465987506804,
+        "scaled_delta": 0.014863884183326528,
+        "weight": 1500,
+        "coeffs": [
+            0,
+            0.021629987052164547,
+            0
+        ]
+    },
+    "Stage 2": {
+        "Shot 1": {
+            "timestamp": 174855,
+            "rect_pos": [
+                82,
+                97
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                -0.6997084548104956,
+                53.52769679300292
+            ]
+        },
+        "Shot 2": {
+            "timestamp": 174856,
+            "rect_pos": [
+                82,
+                97
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                127,
+                103
+            ],
+            "pixel_per_mm_ratio": 0.71875,
+            "platform_center": [
+                82.75,
+                59.0
+            ],
+            "relative_rect_pos": [
+                -1.0434782608695652,
+                52.869565217391305
+            ]
+        },
+        "Shot 3": {
+            "timestamp": 174857,
+            "rect_pos": [
+                82,
+                97
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                -0.6997084548104956,
+                53.52769679300292
+            ]
+        },
+        "relative_rect_pos_mean": [
+            -0.814,
+            53.308
+        ],
+        "scaled_value": 1.236305295097492,
+        "scaled_delta": 0.0515737086564268,
+        "weight": 1500,
+        "coeffs": [
+            0,
+            0,
+            0.07659661513919107
+        ]
+    },
+    "Stage 3": {
+        "Shot 1": {
+            "timestamp": 174916,
+            "rect_pos": [
+                44,
+                58
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                -53.87755102040816,
+                -1.0495626822157433
+            ]
+        },
+        "Shot 2": {
+            "timestamp": 174917,
+            "rect_pos": [
+                44,
+                58
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.71875,
+            "platform_center": [
+                82.25,
+                59.0
+            ],
+            "relative_rect_pos": [
+                -53.21739130434783,
+                -1.391304347826087
+            ]
+        },
+        "Shot 3": {
+            "timestamp": 174919,
+            "rect_pos": [
+                44,
+                58
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                38,
+                102
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.71875,
+            "platform_center": [
+                82.25,
+                59.0
+            ],
+            "relative_rect_pos": [
+                -53.21739130434783,
+                -1.391304347826087
+            ]
+        },
+        "relative_rect_pos_mean": [
+            -53.437,
+            -1.277
+        ],
+        "scaled_value": 1.1578579808088607,
+        "scaled_delta": -0.015151827137810058,
+        "weight": 1500,
+        "coeffs": [
+            0,
+            0.02335272792813977,
+            0
+        ]
+    },
+    "Stage 4": {
+        "Shot 1": {
+            "timestamp": 174932,
+            "rect_pos": [
+                83,
+                22
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                0.6997084548104956,
+                -51.42857142857143
+            ]
+        },
+        "Shot 2": {
+            "timestamp": 174933,
+            "rect_pos": [
+                83,
+                22
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                0.6997084548104956,
+                -51.42857142857143
+            ]
+        },
+        "Shot 3": {
+            "timestamp": 174934,
+            "rect_pos": [
+                83,
+                22
+            ],
+            "circle1_pos": [
+                40,
+                16
+            ],
+            "circle2_pos": [
+                39,
+                101
+            ],
+            "circle3_pos": [
+                125,
+                16
+            ],
+            "circle4_pos": [
+                126,
+                102
+            ],
+            "pixel_per_mm_ratio": 0.7145833333333333,
+            "platform_center": [
+                82.5,
+                58.75
+            ],
+            "relative_rect_pos": [
+                0.6997084548104956,
+                -51.42857142857143
+            ]
+        },
+        "relative_rect_pos_mean": [
+            0.7,
+            -51.429
+        ],
+        "scaled_value": 1.117148918803373,
+        "scaled_delta": -0.04977804727841012,
+        "weight": 1500,
+        "coeffs": [
+            0,
+            0,
+            0.07805714106939661
+        ]
+    },
+    "Result": [
+        0.079933457371556,
+        0.02249135749015216,
+        0.07732687810429384
+    ]
+}

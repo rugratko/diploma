@@ -3,19 +3,18 @@ from pyb import LED
 
 interface = rpc.rpc_usb_vcp_slave()
 
-red_led   = LED(1)
+red_led = LED(1)
 green_led = LED(2)
-blue_led  = LED(3)
-
+blue_led = LED(3)
 
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QQVGA)
-sensor.skip_frames(time = 2000)
+sensor.skip_frames(time=2000)
 
 
 def find_center(x, y, w, h):
-    return x + w/2, y + h/2
+    return round(x+w/2), round(y+h/2)
 
 
 def restart(data):
@@ -27,26 +26,48 @@ def watcher(data):
     return struct.pack("<II", A[0], A[1])
 
 
+def make_shot(data):
+    time_stamp, size = struct.unpack("<II", data)
+    img = sensor.snapshot().lens_corr(1.8)
+    filename = str(time_stamp) + '_correction.bmp'
+    img.save(filename, quality=100)
+
+
 def find_rectangle(data):
     time_stamp, size = struct.unpack("<II", data)
-    img = sensor.snapshot()
-    rectangles = img.find_rects(threshold = 20000)
+    img = sensor.snapshot().lens_corr(1.8)
+    rectangles = img.find_rects(threshold=12500) #Проверить значение
+    circles = img.find_circles(threshold=2750, x_margin=10, y_margin=10, r_margin=10, r_min=2, r_max=10, r_step=2)
     for r in rectangles:
-        img = img.draw_rectangle(r.rect(), color = (255, 0, 0))
-    if len(rectangles) == 2:
-        x1, y1, x2, y2 = rectangles[0].x(), rectangles[0].y(), rectangles[1].x(), rectangles[1].y()
-        w1, h1, w2, h2 = rectangles[0].w(), rectangles[0].h(), rectangles[1].w(), rectangles[1].h()
-        pps = (w1 + h1 + w2 + h2)/(int(size)*4)
-        dist = ((x2 - x1)**2 + (y2 - y1)**2) ** 0.5
-        s1 = (w1+h1)/2
-        s2 = (w2+h2)/2
-        x1c, y1c = find_center(x1, y1, w1, h1)
-        x2c, y2c = find_center(x2, y2, w2, h2)
-        img = img.draw_line(round(x1c), round(y1c), round(x2c), round(y2c), color = (0, 0, 255), thickness = 1)
-        filename = str(time_stamp) + '.bmp'
-        img.save(filename, quality = 100)
-        return struct.pack("<IIIIIIIII", time_stamp, (round((s1/pps)*10)), (round((s2/pps)*10)), (round((x1c/pps)*10)), (round((y1c/pps)*10)), ((round(x2c/pps)*10)), ((round(y2c/pps)*10)), round(pps), round(((dist/pps)*10)))
-    return struct.pack("<IIIIIIIII", 0, 0, 0, 0, 0, 0, 0)
+        img = img.draw_rectangle(r.rect(), color=(0, 0, 255))
+    for c in circles:
+        img.draw_circle(c.x(), c.y(), c.r(), color=(50, 220, 100))
+    if len(rectangles) == 1 and len(circles) == 4:
+        rect_x, rect_y = rectangles[0].x(), rectangles[0].y()
+        rect_w, rect_h = rectangles[0].w(), rectangles[0].h()
+        circle1_x, circle1_y = circles[0].x(), circles[0].y()
+        circle2_x, circle2_y = circles[1].x(), circles[1].y()
+        circle3_x, circle3_y = circles[2].x(), circles[2].y()
+        circle4_x, circle4_y = circles[3].x(), circles[3].y()
+        rect_cx, rect_cy = find_center(rect_x, rect_y, rect_w, rect_h)
+        filename = str(time_stamp) + '_step.bmp'
+        img.save(filename, quality=100)
+        return struct.pack(
+            "<IIIIIIIIIII",
+            time_stamp,
+            rect_cx,
+            rect_cy,
+            circle1_x,
+            circle1_y,
+            circle2_x,
+            circle2_y,
+            circle3_x,
+            circle3_y,
+            circle4_x,
+            circle4_y
+        )
+
+    return struct.pack("<IIIIIIIIIII", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 
 blue_led.on()
@@ -58,6 +79,7 @@ green_led.on()
 blue_led.on()
 
 interface.register_callback(watcher)
+interface.register_callback(make_shot)
 interface.register_callback(find_rectangle)
 interface.register_callback(restart)
 

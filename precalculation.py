@@ -92,7 +92,7 @@ def get_number_of_bins(sample, d_err):
     return int((np.max(sample)-np.min(sample))/d_err)
 
 
-cal_mesh_size = 50 #густота сетки калибровки
+cal_mesh_size = 10 #густота сетки калибровки
 test_mesh_size = 50 #густота сетки испытаний
 xg_cal, yg_cal = np.meshgrid(np.linspace(-8.5, 8.5, cal_mesh_size), 
                              np.linspace(-8.5, 8.5, cal_mesh_size)) #задание сетки для калибровки
@@ -131,7 +131,7 @@ d_err = 0.005 #коэффициент количества столбцов
 plt.hist(errors_1, bins = get_number_of_bins(errors_1, d_err),
           alpha = 0.5, label = 'Допуск = 1 см', density = True)
 plt.hist(errors_2, bins = get_number_of_bins(errors_2, d_err), 
-          alpha = 0.5, label = 'Допуск = 0.25 см', density = True)
+          alpha = 0.5, label = 'Допуск = 0.1 см', density = True)
 plt.xlabel('Погрешность после корректировки, %')
 plt.ylabel('Плотность вероятности rho(x)')
 plt.legend()
