@@ -21,8 +21,8 @@ def calibrating_mode(message_chat, shots, step, n_steps, weight):
     stage_data['weight'] = weight
     stage_data['coeffs'] = [0, 0, 0]
     message_chat.appendPlainText(f'''Промежуточные данные:
-    Положение по X: {x_step} мм;
-    Положение по Y: {y_step} мм;
+    Положение по X: {round(x_step, -1)} мм;
+    Положение по Y: {round(y_step, -1)} мм;
     Показания весов: {scaled_value};''')
     time.sleep(1)
     return stage_data
@@ -32,7 +32,7 @@ def scaling_mode(message_chat, shots, preset):
     time.sleep(1)
     stage_data = connect_to_camera_wo_reboot(shots)
     x_step, y_step = get_mean_rect_position(stage_data)
-    weight = get_sensor_weight(1500, x_step, y_step)
+    weight = get_sensor_weight(5000, x_step, y_step)
     time.sleep(1)
     with open('accuracy_presets/' + preset, "r") as read_file:
         data = json.load(read_file)
@@ -41,8 +41,8 @@ def scaling_mode(message_chat, shots, preset):
     scaled_corr = scaled_weight[0]
     scaled_wo_corr = scaled_weight[1]
     message_chat.appendPlainText(f'''Результат взвешивания:
-    Положение по X: {x_step} мм;
-    Положение по Y: {y_step} мм;
+    Положение по X: {round(x_step)} мм;
+    Положение по Y: {round(y_step)} мм;
     Показания весов без коррекции: {scaled_wo_corr * 1000} г;
     Показания весов с коррекцией: {scaled_corr * 1000} г;''')
 

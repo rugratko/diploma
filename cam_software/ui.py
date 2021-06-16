@@ -35,7 +35,7 @@ class SCApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.image_list.currentTextChanged.connect(self.load_image)
 
         # Сделать пристрелочный снимок
-        self.show_camera.clicked.connect(self.single_shot)
+        self.show_camera.clicked.connect(self.show_images)
 
     # Прогрузка нужного изображения в окно
     def load_image(self):
@@ -43,6 +43,11 @@ class SCApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         pixmap = QPixmap(image) # Подставляем картинку
         self.img_label.setPixmap(pixmap)
 
+    def show_images(self):
+        image_pack = settings_handlers.image_shower(
+            self.drive_letter_box.currentText())
+        self.image_list.clear()
+        self.image_list.addItems(image_pack)
 
     def choose_calibrating_mode(self):
         if self.simple_mode.isChecked():

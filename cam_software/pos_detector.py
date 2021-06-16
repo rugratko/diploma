@@ -143,4 +143,4 @@ def connect_to_camera_wo_reboot(shots):
     return result
 
 
-#interface = connect_usb()
+interface = connect_usb()
